@@ -49,28 +49,28 @@ export default {
             publicPath: process.env.BASE_URL,
             features: [
                 {
-                    name: 'スケジュール管理',
+                    name: 'タスク管理',
                     img: `assets/img/schedule.png`,
-                    description: '毎日のスケージュールを管理',
+                    description: '毎日のタスクを管理',
                     link: '/todos'
                 },
                 {
                     name: 'ファイナンス管理',
                     img: `assets/img/budget.png`,
                     description: '自分のお金を管理',
-                    link: '/todos'
+                    link: '/comingsoon'
                 },
                 {
                     name: '健康管理',
                     img: `assets/img/healthcare.png`,
                     description: '自分の健康を大切に',
-                    link: '/todos'
+                    link: '/comingsoon'
                 },
                 {
-                    name: 'WorkSpace',
-                    img: `assets/img/time-management.png`,
-                    description: 'WorkSpaceで集中しよう。',
-                    link: '/workspace'
+                    name: 'Pomodoro',
+                    img: `assets/img/working.png`,
+                    description: 'Pomodoro方法で集中しよう。',
+                    link: '/pomodoro'
                 },
             ],
         }

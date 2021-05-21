@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/components/Home.vue'
 import Contact from '@/components/Contact.vue'
 import About from '@/components/About.vue'
+import ComingSoon from '@/components/ComingSoon.vue'
 import TodoApp from '@/components/features/TodoApp.vue'
-import WorkSpace from '@/components/features/WorkSpace.vue'
+import Pomodoro from '@/components/features/Pomodoro.vue'
 
 const routes = [
   {
@@ -27,9 +28,14 @@ const routes = [
     component: TodoApp
   },
   {
-    path: '/workspace',
-    name: 'WorkSpace',
-    component: WorkSpace
+    path: '/pomodoro',
+    name: 'Pomodoro',
+    component: Pomodoro
+  },
+  {
+    path: '/comingsoon',
+    name: 'ComingSoon',
+    component: ComingSoon
   },
 ]
 
