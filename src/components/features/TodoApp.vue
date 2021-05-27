@@ -3,7 +3,7 @@
     <div class="col-md-8">
         <div class="card-hover-shadow-2x mb-3 card">
             <div class="card-header-tab card-header">
-                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">Task Lists</div>
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal fs-3">Task Lists</div>
             </div>
             <div class="scroll-area-sm">
                 <perfect-scrollbar class="ps-show-limits">
@@ -18,6 +18,7 @@
                                             <div class="widget-content-left mr-2">
                                                 <div class="custom-checkbox custom-control">
                                                     <input
+                                                        style="cursor: pointer;"
                                                         class="custom-control-input"
                                                         id="exampleCustomCheckbox12"
                                                         type="checkbox"
@@ -44,21 +45,21 @@
                     :class="{show : showAddTaskForm}">
                     <label for="input-task-name"
                             class="col col-md-6 col-sm-12 d-flex flex-wrap justify-content-between">
-                        <span style="flex: 1;">Title: </span>
+                        <span style="min-width: 100px;">Task Title: </span>
                         <input  type="text"
                                 id="input-task-name"
-                                style="flex: 2;"
                                 class="ms-2"
+                                style="flex: 1;"
                                 v-model="newTask.title"
                                 @keydown.enter="addTask"
                             >
                     </label>
                     <label for="input-task-description"
                             class="col col-md-6 col-sm-12 d-flex flex-wrap justify-content-between">
-                        <span style="flex: 1;">Description: </span>
+                        <span style="min-width: 100px;">Description: </span>
                         <input  type="text"
                                 id="input-task-description"
-                                style="flex: 2;"
+                                style="flex: 1;"
                                 class="ms-2"
                                 v-model="newTask.description"
                                 @keydown.enter="addTask"
@@ -135,14 +136,16 @@ i {
 }
 
 .container {
-    
-    margin: 100px auto 0;
+    height: 80vh;
+    margin: 10vh auto 4vh;
 }
 
 .card {
     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
-    transition: all .2s
+    transition: all .2s;
+    height: 100%;
+    min-width: 250px;
 }
 
 .card-header:first-child {
@@ -192,7 +195,7 @@ i {
 }
 
 .scroll-area-sm {
-    height: 288px;
+    flex: 1;
     overflow-x: hidden
 }
 
