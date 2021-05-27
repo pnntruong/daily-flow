@@ -64,7 +64,7 @@
                                 @keydown.enter="addTask"
                             >
                     </label>
-                    <label for="input-task-badge"
+                    <!-- <label for="input-task-badge"
                             class="col col-md-6 col-sm-12 d-flex flex-wrap justify-content-between">
                         <span style="flex: 1;">Badge: </span>
                         <input  type="text"
@@ -74,7 +74,7 @@
                                 v-model="newTask.badge"
                                 @keydown.enter="addTask"
                             >
-                    </label>
+                    </label> -->
                 </div>
                 <div class="card-footer-control mt-2 mb-2">
                     <button class="btn btn-primary"

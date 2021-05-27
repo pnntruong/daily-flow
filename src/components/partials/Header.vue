@@ -1,7 +1,11 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-light fixed-top">
     <div class="container">
-      <router-link class="navbar-brand fs-4" to="/">Daily Flow</router-link>
+      <router-link class="navbar-brand fs-4" to="/">
+          <img 
+              class="header-logo"
+              v-bind:src="`${publicPath}${logoImgLink}`">
+      </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" v-on:click="isMenuBtnActive = !isMenuBtnActive">
           <div class="menu-btn" v-bind:class="{active : isMenuBtnActive}">
@@ -25,6 +29,8 @@ export default {
   name: 'Header',
   data: function(){
     return {
+      publicPath: process.env.BASE_URL,
+      logoImgLink: `assets/img/WebLogo.png`,
       spacerStyle: {},
       navItems: [
       {
@@ -62,6 +68,12 @@ export default {
 <style scoped>
 .navbar{
   width: 100%;
+}
+.header-logo{
+  height: 40px;
+  min-width: 200px;
+  max-width: 250px;
+  width: 20vw;
 }
 .menu-btn {
   --size: 40px;
