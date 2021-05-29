@@ -3,10 +3,10 @@
     <div class="col-md-8">
         <div class="card-hover-shadow-2x mb-3 card">
             <div class="card-header-tab card-header">
-                <div class="card-header-title font-size-lg text-capitalize font-weight-normal fs-3">Task Lists</div>
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal fs-3"><i class="bi bi-pencil"></i> Task Lists</div>
             </div>
             <div class="scroll-area-sm">
-                <perfect-scrollbar class="ps-show-limits">
+                <div class="ps-show-limits">
                     <div style="position: static;" class="ps ps--active-y">
                         <div class="ps-content">
                             <ul class=" list-group list-group-flush">
@@ -27,25 +27,58 @@
                                             </div>
                                             <div class="widget-content-left ms-2"
                                                 :class="{done : task.isDone}">
-                                                <div class="widget-heading fs-4">{{ task.title }}<div class="badge bg-danger ms-2">{{ task.badge }}</div>
+                                                <div class="widget-heading fs-4">
+                                                    <span   @click="editTask(task)"
+                                                            v-if="!task.isEditing"
+                                                            >{{ task.title }}</span>
+                                                    <input v-else
+                                                        class=" fs-4 d-block input-mode"
+                                                        v-model="task.title"
+                                                        placeholder="タイトル"
+                                                        style="width: 100%;"
+                                                        @keydown.enter="editTask(task)">
+
+                                                    <!-- <div    v-if="!task.isEditing"
+                                                            class="badge bg-danger ms-2"
+                                                            @click="editTask(task)"
+                                                            >{{ task.badge }}</div>
+                                                    <input v-else
+                                                        class="badge-edit"
+                                                        v-model="task.badge"
+                                                        @keydown.enter="editTask(task)"> -->
+                                                    <!--Badge disabled because UI Bug-->
                                                 </div>
-                                                <div class="widget-subheading"><i>{{ task.description }} </i></div>
+                                                <div class="widget-subheading"
+                                                    v-if="!task.isEditing"
+                                                    @click="editTask(task)"
+                                                    > <i>{{ task.description }} </i> 
+                                                </div>
+                                                <input v-else
+                                                        class="input-mode widget-subheading"
+                                                        v-model="task.description"
+                                                        placeholder="記述"
+                                                        @keydown.enter="editTask(task)">
                                             </div>
-                                            <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-danger" @click="delTask(task)"> Delete </button> </div>
+                                            <div class="widget-content-right">
+                                                <button class="border-0 btn-transition btn btn-outline-primary" @click="editTask(task)">{{ task.isEditing ? "完了" : "訂正" }}</button>
+                                                <button class="border-0 btn-transition btn btn-outline-danger"
+                                                        @click="delTask(task)"
+                                                    >削除</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </perfect-scrollbar>
+                </div>
             </div>
             <div class="d-block text-right card-footer text-center">
                 <div class="card-footer-form mt-2 row"
                     :class="{show : showAddTaskForm}">
                     <label for="input-task-name"
                             class="col col-md-6 col-sm-12 d-flex flex-wrap justify-content-between">
-                        <span style="min-width: 100px;">Task Title: </span>
+                        <span style="min-width: 100px;">タイトル: </span>
                         <input  type="text"
                                 id="input-task-name"
                                 class="ms-2"
@@ -56,7 +89,7 @@
                     </label>
                     <label for="input-task-description"
                             class="col col-md-6 col-sm-12 d-flex flex-wrap justify-content-between">
-                        <span style="min-width: 100px;">Description: </span>
+                        <span style="min-width: 100px;">記述: </span>
                         <input  type="text"
                                 id="input-task-description"
                                 style="flex: 1;"
@@ -80,7 +113,7 @@
                 <div class="card-footer-control mt-2 mb-2">
                     <button class="btn btn-primary"
                             @click="addTask"
-                        >Add Task</button>
+                        >追加</button>
                 </div>
             </div>
         </div>
@@ -93,18 +126,19 @@ export default {
     data() {
         return {
             showAddTaskForm: false,
-            newTask: {
+            newTask:{
                 title: '',
                 description: '',
-                badge: '',
                 isDone: false,
+                isEditing: false,
             },
+            fitContent: 0,
             taskList: [
                 {
-                    title: 'Hello',
-                    description: 'lorem dimsum',
-                    badge: 'important',
+                    title: '今日のタスクリスクを追加しましょう。',
+                    description: '下の欄を入力してから、追加ボタンを押してね。',
                     isDone: false,
+                    isEditing: false,
                 }
             ],
         }
@@ -114,26 +148,26 @@ export default {
       if(this.newTask.title != ''){
         this.taskList.push(this.newTask);
         this.newTask = {
-            title: '',
-            description: '',
-            badge: '',
-            isDone: false,
-        }
+                title: '',
+                description: '',
+                isDone: false,
+                isEditing: false,
+            };
         this.showAddTaskForm = !this.showAddTaskForm;
       }
     },
     delTask(task){
       let index = this.taskList.indexOf(task);
       this.taskList.splice(index, 1);
-    }
-  }
+    },
+    editTask(task){
+        task.isEditing = !task.isEditing;
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-i {
-    font-style: italic
-}
 
 .container {
     height: 80vh;
@@ -145,6 +179,7 @@ i {
     border-width: 0;
     transition: all .2s;
     height: 100%;
+    max-height: 80vh;
     min-width: 250px;
 }
 
@@ -163,9 +198,24 @@ i {
     background-color: #fff
 }
 
+.input-mode{
+    border: none;
+    outline: none;
+    text-decoration: underline;
+}
+.badge-edit{
+    position: absolute;
+    font-size: .7rem;
+    top: -3px;
+    left: 100%;
+}
+
 .widget-subheading {
     color: #858a8e;
     font-size: 10px
+}
+.widget-heading{
+    position: relative;
 }
 
 .card-header.card-header-tab .card-header-title {

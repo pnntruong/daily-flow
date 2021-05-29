@@ -5,24 +5,24 @@
       <div class="about-features-list">
           <div class="item-top">
             <div class="about-features-list-item">
-              <span lass="about-features-list-item__text">僕の使命は皆さんの<br>日々の流れの管理を助ける。</span>
+              <span lass="about-features-list-item__text">僕の使命は皆さんの<br>日々の流れの管理を<br>サポートします。</span>
             </div>
           </div>
           <div class="about-features-list-item"
               style="top: 20%; left: 10%;">
-            <span lass="about-features-list-item__text">スケージュール<br>管理</span>
+            <router-link to="/todos" class="about-features-list-item__text">スケージュール<br>管理</router-link>
           </div>
           <div class="about-features-list-item"
                 style="top: 20%; right: 10%;">
-            <span lass="about-features-list-item__text">集中力<br>サポーター</span>
+            <router-link to="/pomodoro" class="about-features-list-item__text">集中力<br>サポーター</router-link>
           </div>
           <div class="about-features-list-item"
                 style="bottom: 20%; left: 15%;">
-            <span lass="about-features-list-item__text">健康管理</span>
+            <router-link to="/comingsoon" class="about-features-list-item__text">健康管理</router-link>
           </div>
           <div class="about-features-list-item"
                 style="bottom: 20%; right: 15%;">
-            <span lass="about-features-list-item__text">お金管理</span>
+            <router-link to="/comingsoon" class="about-features-list-item__text">お金管理</router-link>
           </div>
       </div>
       <div class="about-main__img">
@@ -93,13 +93,20 @@ export default{
       align-items: center;
       min-width: 25vmin;
       background: #f8e9db;
-      color: #63492d;
       font-size: 1.3rem;
       padding: 1rem;
 
       animation: heartBeat;
       animation-delay: 1.5s;
       animation-duration: 2s;
+      .about-features-list-item__text{
+        text-decoration: none;
+        color: #63492d;
+
+        &:hover{
+          transform: scale(1.1);
+        }
+      }
     }
   }
   

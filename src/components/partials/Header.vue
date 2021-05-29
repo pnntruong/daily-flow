@@ -34,17 +34,17 @@ export default {
       spacerStyle: {},
       navItems: [
       {
-        name: 'Home',
+        name: 'ホーム',
         link: '/',
         isActive: true,
       },
       {
-        name: 'Contact',
+        name: '私について',
         link: '/contact',
         isActve: false,
       },
       {
-        name: 'About',
+        name: 'DailyFlowについて',
         link: '/about',
         isActve: false,
       },
