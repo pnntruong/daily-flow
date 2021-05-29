@@ -9,16 +9,16 @@
       </div>
       <div class="controls">
         <div class="btn tart" v-if="!timer" @click="startTimer">
-          Start
+          スタート
         </div>
         <div class="btn pause"  v-if="timer" @click="stopTimer">
-          Stop
+          中止
         </div>
         <div class="btn stop" v-if="resetButton" @click="resetTimer">
-          Reset
+          リセット
         </div>
         <div class="btn edit" v-if="!timer" @click="editTimer">
-          Edit
+          編集
         </div>
       </div>
       <div class="input">
@@ -41,9 +41,9 @@ export default {
         timer: null,
         totalTime: (25 * 60),
         resetButton: false,
-        title: "Countdown to rest time!",
+        title: "休憩まであと",
         edit: false,
-        userTime: 0.01,
+        userTime: null,
       } 
   },
   methods: {

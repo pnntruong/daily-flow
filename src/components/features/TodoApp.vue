@@ -60,7 +60,7 @@
                                                         @keydown.enter="editTask(task)">
                                             </div>
                                             <div class="widget-content-right">
-                                                <button class="border-0 btn-transition btn btn-outline-primary" @click="editTask(task)">{{ task.isEditing ? "完了" : "訂正" }}</button>
+                                                <button class="border-0 btn-transition btn btn-outline-primary" @click="editTask(task)">{{ task.isEditing ? "完了" : "編集" }}</button>
                                                 <button class="border-0 btn-transition btn btn-outline-danger"
                                                         @click="delTask(task)"
                                                     >削除</button>
