@@ -40,7 +40,7 @@ export default {
       },
       {
         name: '私について',
-        link: '/contact',
+        link: '/portfolio',
         isActve: false,
       },
       {
