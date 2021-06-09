@@ -371,5 +371,9 @@ export default {
 .widget-content-left.done .badge {
     background-color: #ccc!important;
 }
-
+.card-footer-control{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 </style>
