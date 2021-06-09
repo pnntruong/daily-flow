@@ -3,7 +3,7 @@
     <div class="col-md-8">
         <div class="card-hover-shadow-2x mb-3 card">
             <div class="card-header-tab card-header">
-                <div class="card-header-title font-size-lg text-capitalize font-weight-normal fs-3"><i class="bi bi-pencil"></i> Task Lists</div>
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal fs-3"><i class="fas fa-list-ul me-3"></i> Task Lists</div>
             </div>
             <div class="scroll-area-sm">
                 <div class="ps-show-limits">
@@ -17,12 +17,22 @@
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-2">
                                                 <div class="custom-checkbox custom-control">
-                                                    <input
+                                                    <label style="cursor: pointer">
+                                                        <span v-if="!task.isDone">
+                                                            <i class="fs-4 far fa-check-square"></i>
+                                                        </span>
+                                                        <span v-else>
+                                                            <i class="fs-4 fas fa-check-square" style="color: #3ac47d"></i>
+                                                        </span>
+                                                        <input
                                                         style="cursor: pointer;"
                                                         class="custom-control-input"
-                                                        id="exampleCustomCheckbox12"
+                                                        id="task-checkbox"
                                                         type="checkbox"
-                                                        v-model="task.isDone">
+                                                        v-model="task.isDone"
+                                                        hidden
+                                                        >
+                                                    </label>
                                                 </div>
                                             </div>
                                             <div class="widget-content-left ms-2"
@@ -60,10 +70,17 @@
                                                         @keydown.enter="editTask(task)">
                                             </div>
                                             <div class="widget-content-right">
-                                                <button class="border-0 btn-transition btn btn-outline-primary" @click="editTask(task)">{{ task.isEditing ? "完了" : "編集" }}</button>
+                                                <button class="border-0 btn-transition btn btn-outline-primary" @click="editTask(task)">
+                                                    <span v-if="!task.isEditing">
+                                                        <i class="fs-4 fas fa-pencil-alt"></i>
+                                                    </span>
+                                                    <span v-else>
+                                                        <i class="fs-4 far fa-check-circle"></i>
+                                                    </span>
+                                                </button>
                                                 <button class="border-0 btn-transition btn btn-outline-danger"
                                                         @click="delTask(task)"
-                                                    >削除</button>
+                                                    ><i class="fs-4 far fa-trash-alt"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-block text-right card-footer text-center">
+            <div class="d-block card-footer">
                 <div class="card-footer-form mt-2 row"
                     :class="{show : showAddTaskForm}">
                     <label for="input-task-name"
@@ -113,7 +130,7 @@
                 <div class="card-footer-control mt-2 mb-2">
                     <button class="btn btn-primary"
                             @click="addTask"
-                        >追加</button>
+                        ><i class="far fa-calendar-plus"></i> 追加</button>
                 </div>
             </div>
         </div>
@@ -354,4 +371,5 @@ export default {
 .widget-content-left.done .badge {
     background-color: #ccc!important;
 }
+
 </style>

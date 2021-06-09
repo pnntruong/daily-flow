@@ -8,17 +8,17 @@
         <span class="seconds">{{ seconds }}</span>
       </div>
       <div class="controls">
-        <div class="btn tart" v-if="!timer" @click="startTimer">
-          スタート
+        <div class="btn start" v-if="!timer" @click="startTimer">
+          <i class="fs-2 fas fa-play"></i>
         </div>
         <div class="btn pause"  v-if="timer" @click="stopTimer">
-          中止
+          <i class="fs-2 far fa-stop-circle"></i>
         </div>
         <div class="btn stop" v-if="resetButton" @click="resetTimer">
-          リセット
+          <i class="fs-2 fas fa-redo-alt"></i>
         </div>
         <div class="btn edit" v-if="!timer" @click="editTimer">
-          編集
+          <i class="fs-2 fas fa-pencil-alt"></i>
         </div>
       </div>
       <div class="input">
