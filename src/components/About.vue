@@ -1,13 +1,13 @@
 <template>
   <div class="container-fluid text-center">
-    <h1 class="about-header fs-1">Daily-Flowについて</h1>
+    <h1 class="about-header fs-1 pt-5">Daily-Flowについて</h1>
     <div class="about-main">
       <div class="about-features-list">
-          <div class="item-top">
+          <!-- <div class="item-top">
             <div class="about-features-list-item">
               <span lass="about-features-list-item__text">僕の使命は皆さんの<br>日々の流れの管理を<br>サポートします。</span>
             </div>
-          </div>
+          </div> -->
           <div class="about-features-list-item"
               style="top: 20%; left: 10%;">
             <router-link to="/todos" class="about-features-list-item__text">スケージュール<br>管理</router-link>

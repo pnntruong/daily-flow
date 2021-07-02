@@ -8,34 +8,36 @@
                         >
                 <div class="info-detail mt-3">
                     <div class="name">
-                        Phan Nguyen Nhat Truong
+                        PHAN NGUYEN NHAT TRUONG
                     </div>
                     <div class="age">
-                        Age: 22
+                        {{new Date().getFullYear() - 1999}} 歳
                     </div>
                     <div class="location">
-                        Tokyo, Japan
+                        <i class="fas fa-map-marker-alt"></i> 日本、東京都
                     </div>
                 </div>
             </div>
             <div class="description col-12 col-sm-12 col-md-8">
                 <div class="description-header fs-1">
-                    Hello,<br>
-                    I'm a Front End<br>
-                    Web Developer
+                    こんにちは、<br>
+                    私は チュオン<br>
+                    フロントエンドエンジニア
                 </div>
                 <p class="description-text fs-5">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis tempore atque molestias impedit exercitationem, error non tenetur. Impedit consequuntur ratione deserunt. Cum, non repellendus. Illo laborum vero provident assumenda omnis?
+                    私は今留学生として、早稲田文理専門学校でITの知識を習得して、<br>ウェブ・アプリ制作専攻しています。<br>
+                    勉強したことを応用して、このページを制作しました。<br>
+                    どうぞ、ゆっくりご覧ください。
                 </p>
             </div>
         </div>
         <div class="social-icons">
             <a class="social-icons__link"
-                href="/"><i class="fab fa-facebook"></i></a>
+                href="https://www.facebook.com/truong.phannguyennhat"><i class="fab fa-facebook"></i></a>
             <a class="social-icons__link"
-                href="/"><i class="fab fa-github"></i></a>
+                href="https://github.com/pnntruong"><i class="fab fa-github"></i></a>
             <a class="social-icons__link"
-                href="/"><i class="far fa-envelope"></i></a>
+                href="mailto:pnntruong@gmail.com" title="pnntruong@gmail.com"><i class="far fa-envelope"></i></a>
         </div>
         <div class="arrow">
 
@@ -64,6 +66,8 @@ export default {
     .main-session{
         padding: 0 5vw;
         height: 100%;
+        display: flex;
+        flex-wrap: wrap;
 
         .info{
 
@@ -83,6 +87,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            max-height: 40vmin;
             height: 40vh;
             
             .description-header{
