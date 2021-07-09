@@ -1,21 +1,21 @@
 <template>
     <div class="bg-light">
         <div id="home">
-        <div class="container" id="description-1">
-            <div class="row">
-                <div class="col">
-                    <h3  class="header fs-1 fw-bolder">
-                        日々の流れを<br>「DAILY FLOW」で<br>管理しよう。
-                    </h3>
-                    <button onclick="location.href='#features'" class="btn app-description__btn fw-bold shadow mt-5">
-                        使用開始
-                        <span class="app-description__btn-arrow animate__animated animate__flash animate__slower animate__infinite">>></span>
-                    </button>
+            <div class="container" id="description-1">
+                <div class="row">
+                    <div class="col">
+                        <h3  class="header fs-1 fw-bolder">
+                            日々の流れを<br>「DAILY FLOW」で<br>管理しよう。
+                        </h3>
+                        <button onclick="location.href='#features'" class="btn app-description__btn fw-bold shadow mt-5">
+                            使用開始
+                            <span class="app-description__btn-arrow animate__animated animate__flash animate__slower animate__infinite">>></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container" id="features">
+        <div class="container" id="features">
             <div class="container">
                 <div class="row">
                     <p class="features-header col col-12 fs-1 text-center mt-5 mb-5 fw-bold">「DAILY FLOW」の特徴 </p>
@@ -36,14 +36,19 @@
                 </ul>
             </div>
         </div>
+        <CovidDashboard></CovidDashboard>
     </div>
 </template>
 
 <script>
+import CovidDashboard from './features/CovidDashboard';
 
 export default {
     
     name:'Home',
+    components: {
+        CovidDashboard,
+    },
     data(){
         return {
             publicPath: process.env.BASE_URL,
