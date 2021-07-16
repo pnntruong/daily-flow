@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="main-wrapper">
+    <div class="container pt-5" id="main-wrapper">
         <h1>Coronavirus Dashboard</h1>
         <h3 class="heading">World Data</h3>
         <div class="cards">

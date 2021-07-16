@@ -5,6 +5,7 @@ import About from '@/components/About.vue'
 import ComingSoon from '@/components/ComingSoon.vue'
 import TodoApp from '@/components/features/TodoApp.vue'
 import Pomodoro from '@/components/features/Pomodoro.vue'
+import CovidDashboard from '@/components/features/CovidDashboard.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/comingsoon',
     name: 'ComingSoon',
     component: ComingSoon
+  },
+  {
+    path: '/covid19',
+    name: 'CovidDashboard',
+    component: CovidDashboard
   },
 ]
 

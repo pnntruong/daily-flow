@@ -36,19 +36,14 @@
                 </ul>
             </div>
         </div>
-        <CovidDashboard></CovidDashboard>
     </div>
 </template>
 
 <script>
-import CovidDashboard from './features/CovidDashboard';
 
 export default {
     
     name:'Home',
-    components: {
-        CovidDashboard,
-    },
     data(){
         return {
             publicPath: process.env.BASE_URL,
@@ -66,10 +61,10 @@ export default {
                     link: '/comingsoon'
                 },
                 {
-                    name: '健康管理',
+                    name: 'COVID-19情報',
                     img: `assets/img/healthcare.png`,
                     description: '自分の健康を大切に',
-                    link: '/comingsoon'
+                    link: '/covid19'
                 },
                 {
                     name: 'Pomodoro',
