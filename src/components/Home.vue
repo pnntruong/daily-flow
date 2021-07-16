@@ -63,7 +63,7 @@ export default {
                 {
                     name: 'COVID-19情報',
                     img: `assets/img/healthcare.png`,
-                    description: '自分の健康を大切に',
+                    description: 'COVID-19情報',
                     link: '/covid19'
                 },
                 {
