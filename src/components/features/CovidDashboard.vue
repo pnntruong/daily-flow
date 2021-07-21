@@ -1,37 +1,37 @@
 <template>
     <div class="container pt-5" id="main-wrapper">
-        <h1>Coronavirus Dashboard</h1>
-        <h3 class="heading">World Data</h3>
+        <h1>コロナウイルス情報</h1>
+        <h3 class="heading">世界中の感染状況</h3>
         <div class="cards">
         <div class="card">
             <h3 id="cases">{{ Number(globalData.cases).toLocaleString() }}</h3>
-            <p>Total Cases</p>
+            <p>感染者数</p>
             <div class="new-today">
             <span> + </span>
             <span id="new-cases">{{ Number(globalData.todayCases).toLocaleString() }}</span>
-            <span> today</span>
+            <span> 今日</span>
             </div>
         </div>
         <div class="card">
             <h3 id="deaths">{{ Number(globalData.deaths).toLocaleString() }}</h3>
-            <p>Total Deaths</p>
+            <p>死者数</p>
             <div class="new-today">
             <span> + </span>
             <span id="new-deaths">{{ Number(globalData.todayDeaths).toLocaleString() }}</span>
-            <span> today</span>
+            <span> 今日</span>
             </div>
         </div>
         <div class="card">
             <h3 id="recovered">{{ Number(globalData.recovered).toLocaleString() }}</h3>
-            <p>Total Recovered</p>
+            <p>回復者数</p>
             <div class="new-today">
             <span> + </span>
             <span id="new-recovered">{{ Number(globalData.todayRecovered).toLocaleString() }}</span>
-            <span> today</span>
+            <span> 今日</span>
             </div>
         </div>
     </div>
-        <h3 class="heading">Country Specific</h3>
+        <h3 class="heading">各国の感染状況</h3>
         <div class="search-bar">
         <span id="search-icon">🔍</span>
         <input id="country" placeholder="Country name ..." autocomplete="off" v-model="countryInput">
@@ -44,29 +44,29 @@
             <h2 class="country-name">{{country.country}}</h2>
             <img :src="country.countryInfo.flag">
             <h3 id="cases">{{ Number(country.cases).toLocaleString() }}</h3>
-            <p>Total Cases</p>
+            <p>感染者数</p>
             <div class="new-today">
                 <span> + </span>
                 <span id="new-cases">{{ Number(country.todayCases).toLocaleString() }}</span>
-                <span> today</span>
+                <span> 今日</span>
             </div>
             <h3 id="deaths">{{ Number(country.deaths).toLocaleString() }}</h3>
-            <p>Total Deaths</p>
+            <p>死者数</p>
             <div class="new-today">
                 <span> + </span>
                 <span id="new-deaths">{{ Number(country.todayDeaths).toLocaleString() }}</span>
-                <span> today</span>
+                <span> 今日</span>
             </div>
             <h3 id="recovered">{{ Number(country.recovered).toLocaleString() }}</h3>
-            <p>Total Recovered</p>
+            <p>回復者数</p>
             <div class="new-today">
             <span> + </span>
             <span id="new-recovered">{{ Number(country.todayRecovered).toLocaleString() }}</span>
-            <span> today</span>
+            <span> 今日</span>
             </div>
         </div>
         </div>
-        <div class="info">The API used is available <a href="https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest" target="_blank">here</a>.</div>
+        <div class="info">使っているAPIは <a href="https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest" target="_blank">こちら</a>です。</div>
   </div>
 </template>
 

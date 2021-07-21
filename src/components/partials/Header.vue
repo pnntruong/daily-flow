@@ -13,7 +13,7 @@
         </span>
     </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="align-items: center;">
           <li v-for="navItem in navItems" :key="navItem.name">
             <router-link class="nav-link" v-bind:class="{active: navItem.isActive}" aria-current="page" v-bind:to=navItem.link>{{ navItem.name }}</router-link>
           </li>
@@ -125,5 +125,9 @@ export default {
 .navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
+}
+
+.nav-link:hover{
+ transform: translateY(-1px);
 }
 </style>
