@@ -18,7 +18,7 @@
           </div>
           <div class="about-features-list-item"
                 style="bottom: 20%; left: 15%;">
-            <router-link to="/comingsoon" class="about-features-list-item__text">健康管理</router-link>
+            <router-link to="/comingsoon" class="about-features-list-item__text">コロナウイルス<br>情報</router-link>
           </div>
           <div class="about-features-list-item"
                 style="bottom: 20%; right: 15%;">
