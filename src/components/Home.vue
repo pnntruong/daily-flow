@@ -61,6 +61,12 @@ export default {
                     link: '/comingsoon'
                 },
                 {
+                    name: '高速読書',
+                    img: `assets/img/reading.png`,
+                    description: 'SwiftReadで読書しよう！',
+                    link: '/swiftread'
+                },
+                {
                     name: 'COVID-19情報',
                     img: `assets/img/healthcare.png`,
                     description: 'COVID-19情報',

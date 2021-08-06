@@ -6,6 +6,7 @@ import ComingSoon from '@/components/ComingSoon.vue'
 import TodoApp from '@/components/features/TodoApp.vue'
 import Pomodoro from '@/components/features/Pomodoro.vue'
 import CovidDashboard from '@/components/features/CovidDashboard.vue'
+import SwiftRead from '@/components/features/SwiftRead.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/covid19',
     name: 'CovidDashboard',
     component: CovidDashboard
+  },
+  {
+    path: '/swiftread',
+    name: 'SwiftRead',
+    component: SwiftRead
   },
 ]
 
