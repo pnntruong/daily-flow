@@ -106,7 +106,7 @@ export default {
 
 #content{
     margin-top: 1rem;
-    font-size: 5rem;
+    font-size: 10rem;
 }
 #speed-input{
   margin-bottom: 10px;
