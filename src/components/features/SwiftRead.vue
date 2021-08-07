@@ -1,14 +1,17 @@
 <template>
-    <div class="container-fluid mt-5 wrapper" :class="{ 'dark-mode': darkMode }">
-        <label for="dark-mode" :class="{ 'to-transparent': isReading }" style="position: relative; top: -4%;">
-        Dark Mode: 
-        <input type="checkbox" id="darkmode" v-model="darkMode">
+    <div class="container-fluid mt-5 wrapper animate__animated animate__bounceInLeft" :class="{ 'dark-mode': darkMode }">
+        <label for="darkmode" :class="{ 'to-transparent': isReading }" style="position: relative; top: -2%; cursor: pointer; transition: .7s;">
+        Mode: 
+        <i v-if="darkMode" class="fas fa-moon fs-4"></i>
+        <i v-else class="fas fa-sun fs-4"></i>
+        <input type="checkbox" id="darkmode" v-model="darkMode" style="opacity: 0;">
+
         </label>
         <div class="data-input" :class="{ hide : isReading }">
             <div class="text-center">
                 <label for="speed-input">
-                <span class="me-2" >Speed:</span>
-                <input type="number" id="speed-input" v-model="readSpeed">
+                    <span class="me-2" >Speed:</span>
+                    <input type="number" id="speed-input" v-model="readSpeed">
                 </label>
             </div>
             <textarea id="dataText" name="Content" cols="30" rows="20" placeholder="Type your content here..." v-model="textData"></textarea>
@@ -52,7 +55,7 @@ export default {
     methods: {
         startReading: function(){
             this.isReading = true;
-            let segs = this.textData.split(" ");
+            let segs = this.textData.split(/\r|\n/).join(" ").split(" "); //join paragraph and split words by space.
             console.log(segs);
             segs.forEach((word, i) => {
                 if(word != ''){
@@ -107,6 +110,7 @@ export default {
 }
 #speed-input{
   margin-bottom: 10px;
+  width: 100px;
 }
 .main-show{
   padding: 5px;
@@ -122,6 +126,8 @@ export default {
 textarea{
   font-size: 1rem;
   padding: 5px;
+  border: 2px solid var(--text-color);
+  border-radius: 4px;
 }
 
 .control{
@@ -132,7 +138,7 @@ button{
   border: none;
   outline: none;
   font-size: 2rem;
-  padding: 5px;
+  padding: 4px 16px;
   border-radius: 5px;
   margin: 0 1rem;
 }
