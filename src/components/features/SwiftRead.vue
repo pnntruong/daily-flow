@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mt-5 wrapper animate__animated animate__bounceInLeft" :class="{ 'dark-mode': darkMode }">
+    <div class="container-fluid mt-5 wrapper" :class="{ 'dark-mode': darkMode }">
         <label for="darkmode" :class="{ 'to-transparent': isReading }" style="position: relative; top: -2%; cursor: pointer; transition: .7s;">
         Mode: 
         <i v-if="darkMode" class="fas fa-moon fs-4"></i>
@@ -12,6 +12,14 @@
                 <label for="speed-input">
                     <span class="me-2" >Speed:</span>
                     <input type="number" id="speed-input" v-model="readSpeed">
+                </label>
+                <label for="speed-input">
+                    <span class="me-2 ms-3" >Language:</span>
+                    <select name="input-languages" id="input-language" class="p-1" v-model="inputLanguage">
+                      <option value="en">English</option>
+                      <option value="ja">日本語</option>
+                      <option value="vi">Tiếng Việt</option>
+                    </select>
                 </label>
             </div>
             <textarea id="dataText" name="Content" cols="30" rows="20" placeholder="Type your content here..." v-model="textData"></textarea>
@@ -38,6 +46,8 @@
 </template>
 
 <script>
+import TinySegmenter from 'tiny-segmenter';
+
 function render(data, target){
   target.innerHTML = data;
 }
@@ -49,13 +59,22 @@ export default {
             readSpeed: 300,
             setTimeoutVars: [],
             isReading: false,
+            inputLanguage: "en",
 
         }
     },
     methods: {
         startReading: function(){
+            console.log(this.inputLanguage);
             this.isReading = true;
-            let segs = this.textData.split(/\r|\n/).join(" ").split(" "); //join paragraph and split words by space.
+            let segs;
+            if(this.inputLanguage === "ja") {
+              let segmenter = new TinySegmenter();
+              segs = segmenter.segment(this.textData); // 単語の配列が返る
+              console.log(this.textData);
+            } else {
+              segs = this.textData.split(/\r|\n/).join(" ").split(" "); //join paragraph and split words by space.
+            }
             console.log(segs);
             segs.forEach((word, i) => {
                 if(word != ''){

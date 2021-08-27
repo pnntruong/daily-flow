@@ -54,12 +54,12 @@ export default {
                     description: '毎日のタスクを管理',
                     link: '/todos'
                 },
-                {
-                    name: 'ファイナンス管理',
-                    img: `assets/img/budget.png`,
-                    description: '自分のお金を管理',
-                    link: '/comingsoon'
-                },
+                // {
+                //     name: 'ファイナンス管理',
+                //     img: `assets/img/budget.png`,
+                //     description: '自分のお金を管理',
+                //     link: '/comingsoon'
+                // },
                 {
                     name: '高速読書',
                     img: `assets/img/reading.png`,
