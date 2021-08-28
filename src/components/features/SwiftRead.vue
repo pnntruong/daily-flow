@@ -22,16 +22,16 @@
                     </select>
                 </label>
             </div>
-            <textarea id="dataText" name="Content" cols="30" rows="20" placeholder="Type your content here..." v-model="textData"></textarea>
+            <textarea  id="dataText" name="Content" cols="30" rows="20" placeholder="Type your content here..." v-model="textData"></textarea>
         </div>
         <div class="main-show" :class="{ hide : !isReading }">
-        <div class="current-speed" :class="{ 'to-transparent': isReading }">
-            <span class="speed-label">
-            Current Speed:
-            </span>
-            <span id="speed-value" class="text-center">{{ readSpeed }} WPS</span>
-        </div> 
-        <div id="content">Ready ?</div>
+          <div class="current-speed" :class="{ 'to-transparent': isReading }">
+              <span class="speed-label">
+              Current Speed:
+              </span>
+              <span id="speed-value" class="text-center">{{ readSpeed }} WPS</span>
+          </div> 
+          <div id="content">Ready ?</div>
         </div>
         <div class="control" :class="{ 'to-transparent': isReading }">
         <button id="start" :class="{ hide : isReading }" @click="startReading">
@@ -126,6 +126,8 @@ export default {
 #content{
     margin-top: 1rem;
     font-size: 10rem;
+    max-height: 50vh;
+    max-width: 70vw;
 }
 #speed-input{
   margin-bottom: 10px;
@@ -134,6 +136,7 @@ export default {
 .main-show{
   padding: 5px;
   position: relative;
+  overflow: hidden;
 }
 .current-speed{
   position: absolute;
