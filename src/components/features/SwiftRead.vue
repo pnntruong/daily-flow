@@ -1,44 +1,44 @@
 <template>
     <div class="container-fluid mt-5 wrapper" :class="{ 'dark-mode': darkMode }">
         <label for="darkmode" :class="{ 'to-transparent': isReading }" style="position: relative; top: -2%; cursor: pointer; transition: .7s;">
-        Mode: 
+        テーマ: 
         <i v-if="darkMode" class="fas fa-moon fs-4"></i>
         <i v-else class="fas fa-sun fs-4"></i>
         <input type="checkbox" id="darkmode" v-model="darkMode" style="opacity: 0;">
 
         </label>
         <div class="data-input" :class="{ hide : isReading }">
-            <div class="text-center">
+            <div class="text-center mb-1">
                 <label for="speed-input">
-                    <span class="me-2" >Speed:</span>
-                    <input type="number" id="speed-input" v-model="readSpeed">
+                    <span class="me-2" >速度:</span>
+                    <input class="me-2" type="number" id="speed-input" v-model="readSpeed">
                 </label>
                 <label for="speed-input">
-                    <span class="me-2 ms-3" >Language:</span>
-                    <select name="input-languages" id="input-language" class="p-1" v-model="inputLanguage">
-                      <option value="en">English</option>
+                    <span class="me-2">言語:</span>
+                    <select name="input-languages" id="input-language" class="p-1 me-2" v-model="inputLanguage">
                       <option value="ja">日本語</option>
+                      <option value="en">English</option>
                       <option value="vi">Tiếng Việt</option>
                     </select>
                 </label>
             </div>
-            <textarea  id="dataText" name="Content" cols="30" rows="20" placeholder="Type your content here..." v-model="textData"></textarea>
+            <textarea id="dataText" name="Content" cols="30" rows="20" placeholder="読みたい内容を入力してください。。。" v-model="textData"></textarea>
         </div>
         <div class="main-show" :class="{ hide : !isReading }">
           <div class="current-speed" :class="{ 'to-transparent': isReading }">
               <span class="speed-label">
-              Current Speed:
+              読む速度:
               </span>
               <span id="speed-value" class="text-center">{{ readSpeed }} WPS</span>
           </div> 
-          <div id="content">Ready ?</div>
+          <div id="content" class="text-center">内容を入力しましたか？</div>
         </div>
         <div class="control" :class="{ 'to-transparent': isReading }">
-        <button id="start" :class="{ hide : isReading }" @click="startReading">
-            <i class="fs-2 fas fa-play"></i> Start
+        <button id="start" class="fs-2" :class="{ hide : isReading }" @click="startReading">
+            <i class="fs-2 fas fa-play"></i> スタート
         </button>
-        <button id="stop" :class="{ hide : !isReading }" @click="stopRead">
-          <i class="fs-2 far fa-stop-circle"></i> Stop
+        <button id="stop" class="fs-2" :class="{ hide : !isReading }" @click="stopRead">
+          <i class="fs-2 far fa-stop-circle"></i> 終了
         </button>
         </div>
 
@@ -55,17 +55,17 @@ export default {
     data(){
         return {
             textData: "",
-            darkMode: true,
+            darkMode: false,
             readSpeed: 300,
             setTimeoutVars: [],
             isReading: false,
-            inputLanguage: "en",
+            inputLanguage: "ja",
 
         }
     },
     methods: {
         startReading: function(){
-            console.log(this.inputLanguage);
+            this.darkMode = !this.darkMode;
             this.isReading = true;
             let segs;
             if(this.inputLanguage === "ja") {
@@ -90,6 +90,7 @@ export default {
             }); 
         },
         stopRead: function(){
+            this.darkMode = !this.darkMode;
             this.isReading = false;
             this.setTimeoutVars.forEach(x => clearTimeout(x));
         }
@@ -144,6 +145,9 @@ export default {
   transform: translate(-50%, -50%);  
   min-width: 200px;
 }
+.data-input{
+  text-align: center;
+}
 
 textarea{
   font-size: 1rem;
@@ -159,7 +163,6 @@ textarea{
 button{
   border: none;
   outline: none;
-  font-size: 2rem;
   padding: 4px 16px;
   border-radius: 5px;
   margin: 0 1rem;
