@@ -31,7 +31,7 @@
               </span>
               <span id="speed-value" class="text-center">{{ readSpeed }} WPS</span>
           </div> 
-          <div id="content" class="text-center">内容を入力しましたか？</div>
+          <div id="content" class="text-center display-1">内容を入力しましたか？</div>
         </div>
         <div class="control" :class="{ 'to-transparent': isReading }">
         <button id="start" class="fs-2" :class="{ hide : isReading }" @click="startReading">
@@ -126,9 +126,8 @@ export default {
 
 #content{
     margin-top: 1rem;
-    font-size: 10rem;
     max-height: 50vh;
-    max-width: 70vw;
+    max-width: 100vw;
 }
 #speed-input{
   margin-bottom: 10px;
